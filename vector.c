@@ -16,7 +16,7 @@ Vector new_vector_3d(double x, double y, double z) {
 
 // prompts user for vector
 Vector vector_input(char* print) {
-    char input[50];
+    char* input = malloc(50 * sizeof(char));
 
     printf("%s\n::", print);
     fgets(input, 50, stdin);
@@ -24,10 +24,10 @@ Vector vector_input(char* print) {
     // start of input, end of search, data array, num count
     char* start = input;
     char* end = start;
-    double nums[3];
+    double* nums = malloc(3 * sizeof(double));
     int n = 0;
 
-    // process a vector in the form <x, y, z> or <x, y>
+    // process the input as a vector
     while (n < 3) {
         // ignore angle bracket
         if (*start == '<') {
@@ -36,28 +36,29 @@ Vector vector_input(char* print) {
 
         // read the number, skip over the comma and space
         nums[n] = strtod(start, &end);
-        start = end + 2;
+        start = end + 1;
         n++;
 
         // detect end of vector
-        if (*end == '>' || (start - input) == strlen(input)) {
+        if (*end == '>' || (start - input) >= strlen(input)) {
             break;
         }
     }
 
-    // create a vector and set x,y
+    // create the vector based on parameters given
     Vector v;
-    v.x = nums[0];
-    v.y = nums[1];
 
-    // if the vector is 2d, set threeD to
-    // false, else read z and set to 3d
     if (n == 2) {
-        v.threeD = 0;
+        v = new_vector_2d(nums[0], nums[1]);
+    } else if (n == 3) {
+        v = new_vector_3d(nums[0], nums[1], nums[2]);
     } else {
-        v.z = nums[2];
-        v.threeD = 1;
+        printf("Vectors require at least 2 numbers.\n");
+        v = vector_input("Re-input the last vector:");
     }
+
+    free(input);
+    free(nums);
 
     return v;
 }

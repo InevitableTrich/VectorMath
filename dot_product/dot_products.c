@@ -9,7 +9,7 @@ void get_dot_product() {
 
     // check for same dimensionality
     if (v1.threeD != v2.threeD) {
-        printf("The vectors must have the same dimensions.\n");
+        printf("The vectors must have the same dimensions.\n\n");
         return;
     }
 
