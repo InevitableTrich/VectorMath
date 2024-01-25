@@ -9,11 +9,11 @@ void get_magnitude() {
     // output and calculate
     printf("\n|");
     print_vector(v);
-    printf("| = %.3lf\n\n", magnitude(v));
+    printf("| = √(%.3lf) = %.3lf\n\n", magnitude_sq(v), magnitude(v));
 }
 
-// computes the magnitude of a vector
-double magnitude(Vector v) {
+// computes magnitude squared
+double magnitude_sq(Vector v) {
     // square and sum the x and y components
     double sq_sum = v.x * v.x + v.y * v.y;
 
@@ -22,5 +22,10 @@ double magnitude(Vector v) {
         sq_sum += v.z * v.z;
     }
 
-    return sqrt(sq_sum);
+    return sq_sum;
+}
+
+// computes the magnitude of a vector
+double magnitude(Vector v) {
+    return sqrt(magnitude_sq(v));
 }

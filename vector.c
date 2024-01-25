@@ -34,10 +34,18 @@ Vector vector_input(char* print) {
             start++;
         }
 
-        // read the number, skip over the comma and space
+        // read the number, go to next character
         nums[n] = strtod(start, &end);
         start = end + 1;
-        n++;
+
+        // if fraction, divide by next found number
+        if (*end == '/') {
+            nums[n] /= strtod(start, &end);
+            start = end + 1;
+        }
+
+        // increment count
+        ++n;
 
         // detect end of vector
         if (*end == '>' || (start - input) >= strlen(input)) {
