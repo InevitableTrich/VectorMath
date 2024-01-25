@@ -14,6 +14,18 @@ Vector new_vector_3d(double x, double y, double z) {
     return (Vector) {1, x, y, z};
 }
 
+// scales given vector by constant
+Vector scale_vector(Vector v, double c) {
+    Vector new_v;
+
+    new_v.threeD = v.threeD;
+    new_v.x = v.x * c;
+    new_v.y = v.y * c;
+    new_v.z = v.z * c;
+
+    return new_v;
+}
+
 // prompts user for vector
 Vector vector_input(char* print) {
     char* input = malloc(50 * sizeof(char));

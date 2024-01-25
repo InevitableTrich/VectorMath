@@ -2,6 +2,8 @@
 #include <math.h>
 #include <stdio.h>
 
+
+// get user input then find magnitude
 void get_magnitude() {
     // get the vector from user
     Vector v = vector_input("Input vector:");

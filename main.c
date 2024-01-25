@@ -2,6 +2,8 @@
 #include <string.h>
 #include "dot_product/dot_products.h"
 #include "magnitude/magnitude.h"
+#include "projection/projection.h"
+
 
 // print menu
 void menu();
@@ -25,11 +27,15 @@ int main() {
                 get_dot_product();
                 break;
 
+            case 'p':
+                get_projection();
+                break;
+
             case 'x':
                 break;
 
             default:
-                printf("Input `%s` not recognized\n\n", input);
+                printf("Input `%c` not recognized\n", input[0]);
                 break;
         }
 
@@ -42,6 +48,7 @@ void menu() {
     printf("Vector Calculation Options\n"
            "  m: magnitude\n"
            "  d: dot product\n"
+           "  p: projection\n"
            "  x: exit\n"
            "\n::");
 }

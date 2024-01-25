@@ -3,6 +3,7 @@
 
 #include "../vector.h"
 
+
 void get_magnitude();
 double magnitude_sq(Vector);
 double magnitude(Vector);

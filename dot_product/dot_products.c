@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "dot_products.h"
 
+
 // get user input to then perform dot product
 void get_dot_product() {
     // get the vectors from user

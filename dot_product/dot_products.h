@@ -3,6 +3,7 @@
 
 #include "../vector.h"
 
+
 void get_dot_product();
 double dot_product(Vector v1, Vector v2);
 

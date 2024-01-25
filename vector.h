@@ -9,6 +9,7 @@ typedef struct vector {
 
 Vector new_vector_2d(double, double);
 Vector new_vector_3d(double, double, double);
+Vector scale_vector(Vector, double);
 Vector vector_input(char*);
 void print_vector(Vector);
 
