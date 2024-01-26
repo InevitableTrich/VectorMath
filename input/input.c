@@ -25,6 +25,8 @@ char get_char_input(char* display, char wanted[]) {
         goto menu;
     }
 
+    char c = input[0];
     free(input);
-    return input[0];
+
+    return c;
 }

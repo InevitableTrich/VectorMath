@@ -3,6 +3,7 @@
 #include "dot_product/dot_products.h"
 #include "magnitude/magnitude.h"
 #include "projection/projection.h"
+#include "angle/angle.h"
 
 
 // print menu
@@ -31,6 +32,10 @@ int main() {
                 get_projection();
                 break;
 
+            case 'a':
+                get_angle();
+                break;
+
             case 'x':
                 break;
 
@@ -49,6 +54,7 @@ void menu() {
            "  m: magnitude\n"
            "  d: dot product\n"
            "  p: projection\n"
+           "  a: angle\n"
            "  x: exit\n"
            "\n::");
 }

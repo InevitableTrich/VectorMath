@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include <stdio.h>
 #include "projection.h"
 #include "../dot_product/dot_products.h"
@@ -37,7 +36,7 @@ void get_projection() {
         printf(" = %.3lf", scalar_projection(v1, v2));
     }
 
-    printf("\n");
+    printf("\n\n");
 }
 
 // compute projection of v1 onto v2
