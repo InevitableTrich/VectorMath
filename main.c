@@ -55,12 +55,12 @@ int main() {
 }
 
 void menu() {
-    printf("Vector Calculation Options\n"
+    printf("Vector Calculation Options:\n"
            "  m: magnitude\n"
+           "  c: cross product\n"
            "  d: dot product\n"
            "  p: projection\n"
            "  a: angle\n"
-           "  c: cross product\n"
            "  x: exit\n"
            "\n::");
 }

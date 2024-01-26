@@ -47,6 +47,13 @@ Vector vector_input(char* print) {
         // ignore non-numbers
         while (!isdigit(*start) && *start != '.' && *start != '-') {
             start++;
+
+            if (*start == '\0' && *(start-1) != '>') {
+                printf("Unexpected end of input. Please input your vector again.\n");
+                free(input);
+                free(nums);
+                goto top;
+            }
         }
 
         // read the number, go to next character
