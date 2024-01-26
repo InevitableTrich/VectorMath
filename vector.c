@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 
 // creates a new 2d vector
@@ -28,6 +29,8 @@ Vector scale_vector(Vector v, double c) {
 
 // prompts user for vector
 Vector vector_input(char* print) {
+    top:;
+
     char* input = malloc(50 * sizeof(char));
 
     printf("%s\n::", print);
@@ -41,8 +44,8 @@ Vector vector_input(char* print) {
 
     // process the input as a vector
     while (n < 3) {
-        // ignore angle bracket
-        if (*start == '<') {
+        // ignore non-numbers
+        while (!isdigit(*start) && *start != '.' && *start != '-') {
             start++;
         }
 
@@ -74,7 +77,9 @@ Vector vector_input(char* print) {
         v = new_vector_3d(nums[0], nums[1], nums[2]);
     } else {
         printf("Vectors require at least 2 numbers.\n");
-        v = vector_input("Re-input the last vector:");
+        free(input);
+        free(nums);
+        goto top;
     }
 
     free(input);

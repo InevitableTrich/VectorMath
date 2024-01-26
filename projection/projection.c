@@ -3,29 +3,18 @@
 #include "projection.h"
 #include "../dot_product/dot_products.h"
 #include "../magnitude/magnitude.h"
+#include "../input/input.h"
 
 
 // get user input then perform a projection
 void get_projection() {
-    char* input = malloc(50 * sizeof(char));
-
     // output menu
-    printf("Projection Options:\n"
-           "  p: projection\n"
-           "  s: scalar\n"
-           "  x: back\n"
-           "\n::");
-    // get menu choice
-    fgets(input, 50, stdin);
+    char option = get_char_input("Projection Options:\n"
+                                 "  p: projection\n"
+                                 "  s: scalar\n"
+                                 "  x: back\n", "xps");
 
-    // check for exit / bad input
-    if (input[0] == 'x') {
-        free(input);
-        return;
-    } else if (input[0] != 'p' && input[0] != 's') {
-        printf("Input `%c` not recognized.\n", input[0]);
-        free(input);
-        get_projection();
+    if (option == '\0') {
         return;
     }
 
@@ -35,7 +24,7 @@ void get_projection() {
 
     // perform projection or scalar
     printf("\n");
-    if (input[0] == 'p') {
+    if (option == 'p') {
         print_vector(v1);
         printf(" P ");
         print_vector(v2);
@@ -49,8 +38,6 @@ void get_projection() {
     }
 
     printf("\n");
-
-    free(input);
 }
 
 // compute projection of v1 onto v2
