@@ -42,6 +42,7 @@ void get_angle() {
     printf("\n\n");
 }
 
+// computes the angle between two vectors (in rads)
 double angle(Vector v1, Vector v2) {
     double dot = dot_product(v1, v2);
     double mags = magnitude(v1) * magnitude(v2);
@@ -49,6 +50,7 @@ double angle(Vector v1, Vector v2) {
     return acos(dot / mags);
 }
 
+// converts rads to degs
 #define DEG_CONV (180/M_PI)
 double degrees(double rad) {
     return DEG_CONV * rad;

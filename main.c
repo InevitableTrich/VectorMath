@@ -4,6 +4,7 @@
 #include "magnitude/magnitude.h"
 #include "projection/projection.h"
 #include "angle/angle.h"
+#include "cross_product/cross_product.h"
 
 
 // print menu
@@ -36,6 +37,10 @@ int main() {
                 get_angle();
                 break;
 
+            case 'c':
+                get_cross_product();
+                break;
+
             case 'x':
                 break;
 
@@ -55,6 +60,7 @@ void menu() {
            "  d: dot product\n"
            "  p: projection\n"
            "  a: angle\n"
+           "  c: cross product\n"
            "  x: exit\n"
            "\n::");
 }
